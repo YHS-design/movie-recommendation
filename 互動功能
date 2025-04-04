@@ -1,0 +1,4 @@
+function searchMovie() {
+    let query = document.getElementById("search").value;
+    alert("正在搜尋：" + query);
+}
