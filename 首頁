@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 電影推薦系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 頂部導航欄 -->
+    <header>
+        <h1>AI 電影推薦系統</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="#">推薦電影</a></li>
+                <li><a href="#">熱門排行</a></li>
+                <li><a href="#">我的評分</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 搜尋欄 -->
+    <section class="search-bar">
+        <input type="text" id="search" placeholder="輸入電影名稱...">
+        <button onclick="searchMovie()">搜尋</button>
+    </section>
+
+    <!-- AI 推薦電影區 -->
+    <section class="recommendations">
+        <h2>AI 推薦電影</h2>
+        <div class="movie-list">
+            <div class="movie-card">
+                <img src="images/movie1.jpg" alt="電影1">
+                <h3>電影名稱</h3>
+                <p>AI 預測評分：4.7/5</p>
+            </div>
+            <div class="movie-card">
+                <img src="images/movie2.jpg" alt="電影2">
+                <h3>電影名稱</h3>
+                <p>AI 預測評分：4.6/5</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
