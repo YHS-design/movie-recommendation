@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電影詳情 - AI 電影推薦</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 返回首頁按鈕 -->
+    <a href="index.html" class="back-button">← 返回首頁</a>
+
+    <!-- 電影詳情區塊 -->
+    <section class="movie-detail">
+        <img src="images/movie1.jpg" alt="電影海報" class="movie-poster">
+        <div class="movie-info">
+            <h1 id="movie-title">電影名稱</h1>
+            <p><strong>年份：</strong> <span id="movie-year">2024</span></p>
+            <p><strong>導演：</strong> <span id="movie-director">某某導演</span></p>
+            <p><strong>演員：</strong> <span id="movie-actors">演員 A, 演員 B, 演員 C</span></p>
+            <p><strong>類型：</strong> <span id="movie-genre">動作 / 科幻</span></p>
+            <p><strong>IMDb 評分：</strong> <span id="movie-rating">8.5/10</span></p>
+            <p><strong>簡介：</strong></p>
+            <p id="movie-description">
+                這是一部精彩的電影，講述了一個驚心動魄的故事...
+            </p>
+        </div>
+    </section>
+
+    <!-- AI 推薦相似電影 -->
+    <section class="recommendations">
+        <h2>相似電影推薦</h2>
+        <div class="movie-list">
+            <div class="movie-card">
+                <img src="images/movie2.jpg" alt="相似電影1">
+                <h3>相似電影 1</h3>
+            </div>
+            <div class="movie-card">
+                <img src="images/movie3.jpg" alt="相似電影2">
+                <h3>相似電影 2</h3>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
