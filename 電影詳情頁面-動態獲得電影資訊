@@ -8,28 +8,18 @@
 </head>
 <body>
 
-    <!-- 返回首頁按鈕 -->
     <a href="index.html" class="back-button">← 返回首頁</a>
 
-    <!-- 電影詳情區 -->
     <section class="movie-detail">
-        <img src="" alt="電影海報" class="movie-poster">
+        <img id="movie-poster" src="" alt="電影海報">
         <div class="movie-info">
             <h1 id="movie-title"></h1>
             <p><strong>年份：</strong> <span id="movie-year"></span></p>
-            <p><strong>導演：</strong> <span id="movie-director"></span></p>
-            <p><strong>演員：</strong> <span id="movie-actors"></span></p>
             <p><strong>類型：</strong> <span id="movie-genre"></span></p>
             <p><strong>IMDb 評分：</strong> <span id="movie-rating"></span></p>
             <p><strong>簡介：</strong></p>
             <p id="movie-description"></p>
         </div>
-    </section>
-
-    <!-- 相似電影推薦 -->
-    <section class="recommendations">
-        <h2>相似電影推薦</h2>
-        <div class="movie-list" id="similar-movies"></div>
     </section>
 
     <script src="scripts.js"></script>
