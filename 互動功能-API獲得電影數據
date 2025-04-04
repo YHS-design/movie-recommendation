@@ -1,0 +1,63 @@
+const API_KEY = "你的API金鑰";  // 這裡換成你申請的 TMDb API Key
+const BASE_URL = "https://api.themoviedb.org/3";
+const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+
+// 🔹 1. 獲取熱門電影（首頁）
+async function fetchPopularMovies() {
+    try {
+        const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=zh-TW&page=1`);
+        const data = await response.json();
+        displayMovies(data.results);
+    } catch (error) {
+        console.error("獲取電影資料失敗:", error);
+    }
+}
+
+// 🔹 2. 顯示電影列表
+function displayMovies(movies) {
+    const container = document.getElementById("movie-container");
+    container.innerHTML = "";
+
+    movies.forEach(movie => {
+        const movieCard = document.createElement("div");
+        movieCard.classList.add("movie-card");
+        movieCard.innerHTML = `
+            <img src="${IMAGE_URL + movie.poster_path}" alt="${movie.title}">
+            <h3>${movie.title}</h3>
+            <p>評分：${movie.vote_average}/10</p>
+        `;
+        movieCard.onclick = () => location.href = `movie.html?id=${movie.id}`;
+        container.appendChild(movieCard);
+    });
+}
+
+// 🔹 3. 獲取電影詳細資訊（movie.html）
+async function loadMovieDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get("id");
+    if (!movieId) return;
+
+    try {
+        const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=zh-TW`);
+        const movie = await response.json();
+
+        document.getElementById("movie-title").innerText = movie.title;
+        document.getElementById("movie-year").innerText = movie.release_date;
+        document.getElementById("movie-genre").innerText = movie.genres.map(g => g.name).join(", ");
+        document.getElementById("movie-rating").innerText = movie.vote_average + "/10";
+        document.getElementById("movie-description").innerText = movie.overview;
+        document.getElementById("movie-poster").src = IMAGE_URL + movie.poster_path;
+    } catch (error) {
+        console.error("無法獲取電影詳情:", error);
+    }
+}
+
+// 🔹 4. 當首頁載入時，顯示熱門電影
+if (document.getElementById("movie-container")) {
+    document.addEventListener("DOMContentLoaded", fetchPopularMovies);
+}
+
+// 🔹 5. 當電影詳情頁載入時，顯示電影資訊
+if (document.getElementById("movie-title")) {
+    document.addEventListener("DOMContentLoaded", loadMovieDetails);
+}
