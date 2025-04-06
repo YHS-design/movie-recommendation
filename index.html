@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電影推薦系統</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    #movie-card {
+      background-color: #111;
+      border: 2px solid transparent;
+      padding: 30px;
+      margin: 20px;
+      width: 300px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    #movie-card:hover {
+      border-color: white;
+      box-shadow: 0 0 10px white;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.8em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>電影推薦系統</h1>
+
+  <div id="movie-card">
+    <h2 id="movie-title">隨機推薦一部電影</h2>
+    <p id="movie-description">點擊下方按鈕獲得推薦！</p>
+  </div>
+
+  <button onclick="recommendMovie()">給我推薦！</button>
+
+  <footer>© 2025 by YHS</footer>
+
+  <script>
+    const movies = [
+      { title: "寄生上流", description: "一場關於貧富差距的驚悚黑色喜劇。" },
+      { title: "銀翼殺手2049", description: "探索人性與人工智慧的邊界。" },
+      { title: "天能", description: "一部打破時間邏輯的動作大片。" },
+      { title: "她", description: "一段與人工智慧談戀愛的溫柔故事。" },
+      { title: "楚門的世界", description: "如果你的人生其實是一場真人秀？" }
+    ];
+
+    function recommendMovie() {
+      const random = Math.floor(Math.random() * movies.length);
+      document.getElementById("movie-title").textContent = movies[random].title;
+      document.getElementById("movie-description").textContent = movies[random].description;
+    }
+  </script>
+
+</body>
+</html>
