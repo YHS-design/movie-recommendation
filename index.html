@@ -11,25 +11,24 @@
       background-color: #000;
       color: #fff;
       font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       text-align: center;
+    }
+
+    header {
+      padding: 30px 0;
     }
 
     h1 {
       font-size: 2.5em;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     #movie-card {
       background-color: #111;
       border: 2px solid transparent;
-      padding: 30px;
-      margin: 20px;
-      width: 300px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 320px;
       border-radius: 10px;
       transition: 0.3s;
     }
@@ -39,8 +38,15 @@
       box-shadow: 0 0 10px white;
     }
 
+    #movie-poster {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
     button {
       padding: 10px 20px;
+      margin: 10px;
       background-color: transparent;
       border: 2px solid white;
       color: white;
@@ -53,9 +59,21 @@
       color: black;
     }
 
+    #favorites-list {
+      margin-top: 30px;
+    }
+
+    .favorite-item {
+      background-color: #111;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 6px;
+      width: 280px;
+      font-size: 0.95em;
+    }
+
     footer {
-      position: absolute;
-      bottom: 20px;
+      padding: 20px;
       font-size: 0.8em;
       color: #666;
     }
@@ -63,31 +81,64 @@
 </head>
 <body>
 
-  <h1>電影推薦系統</h1>
+  <header>
+    <h1>電影推薦系統</h1>
+    <p>探索精彩電影世界，點擊獲得推薦並收藏你喜歡的電影！</p>
+  </header>
 
   <div id="movie-card">
-    <h2 id="movie-title">隨機推薦一部電影</h2>
-    <p id="movie-description">點擊下方按鈕獲得推薦！</p>
+    <img id="movie-poster" src="" alt="電影海報">
+    <h2 id="movie-title">電影標題</h2>
+    <p id="movie-description">這裡會顯示電影簡介</p>
   </div>
 
   <button onclick="recommendMovie()">給我推薦！</button>
+  <button onclick="addToFavorites()">加入收藏</button>
 
-  <footer>© 2025 by YHS</footer>
+  <div id="favorites-list">
+    <h3>已收藏的電影：</h3>
+    <div id="favorites"></div>
+  </div>
+
+  <footer>© 2025 by YHS | 黑白極簡風設計</footer>
 
   <script>
     const movies = [
-      { title: "寄生上流", description: "一場關於貧富差距的驚悚黑色喜劇。" },
-      { title: "銀翼殺手2049", description: "探索人性與人工智慧的邊界。" },
-      { title: "天能", description: "一部打破時間邏輯的動作大片。" },
-      { title: "她", description: "一段與人工智慧談戀愛的溫柔故事。" },
-      { title: "楚門的世界", description: "如果你的人生其實是一場真人秀？" }
+      { title: "寄生上流", description: "關於貧富差距的黑色喜劇。", poster: "https://upload.wikimedia.org/wikipedia/zh/9/9b/Parasite_2019_poster.jpg" },
+      { title: "銀翼殺手2049", description: "探索人性與人工智慧的邊界。", poster: "https://upload.wikimedia.org/wikipedia/zh/0/00/Blade_Runner_2049_poster.jpg" },
+      { title: "天能", description: "打破時間邏輯的動作大片。", poster: "https://upload.wikimedia.org/wikipedia/zh/f/fc/Tenet_movie_poster.jpg" },
+      { title: "她", description: "一段與 AI 談戀愛的故事。", poster: "https://upload.wikimedia.org/wikipedia/zh/7/76/Her2013Poster.jpg" },
+      { title: "楚門的世界", description: "如果你人生是一場真人秀？", poster: "https://upload.wikimedia.org/wikipedia/zh/thumb/f/fc/Truman_Show.jpg/220px-Truman_Show.jpg" },
+      { title: "星際效應", description: "穿越宇宙與時間的父女情。", poster: "https://upload.wikimedia.org/wikipedia/zh/b/bc/Interstellar_film_poster.jpg" },
+      { title: "控制", description: "失控的愛與 AI 的自我意識。", poster: "https://upload.wikimedia.org/wikipedia/zh/5/55/Exmachina2015.jpg" },
+      { title: "模仿遊戲", description: "數學天才與二戰密碼戰。", poster: "https://upload.wikimedia.org/wikipedia/zh/8/8a/The_Imitation_Game_Poster.jpg" },
+      { title: "頭號玩家", description: "虛擬世界的冒險與現實反思。", poster: "https://upload.wikimedia.org/wikipedia/zh/2/20/Ready_Player_One.png" },
+      { title: "AI人工智慧", description: "機器人孩子對母愛的渴望。", poster: "https://upload.wikimedia.org/wikipedia/zh/f/f0/Ai_artificial_intelligence_ver1.jpg" }
     ];
 
+    let currentMovie = null;
+    const favorites = [];
+
     function recommendMovie() {
-      const random = Math.floor(Math.random() * movies.length);
-      document.getElementById("movie-title").textContent = movies[random].title;
-      document.getElementById("movie-description").textContent = movies[random].description;
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      currentMovie = movies[randomIndex];
+      document.getElementById("movie-title").textContent = currentMovie.title;
+      document.getElementById("movie-description").textContent = currentMovie.description;
+      document.getElementById("movie-poster").src = currentMovie.poster;
     }
+
+    function addToFavorites() {
+      if (currentMovie && !favorites.includes(currentMovie.title)) {
+        favorites.push(currentMovie.title);
+        const div = document.createElement("div");
+        div.className = "favorite-item";
+        div.textContent = currentMovie.title + " - " + currentMovie.description;
+        document.getElementById("favorites").appendChild(div);
+      }
+    }
+
+    // 預設載入第一部推薦電影
+    window.onload = recommendMovie;
   </script>
 
 </body>
