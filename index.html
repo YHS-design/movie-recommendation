@@ -1,34 +1,132 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>電影推薦網站</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI電影推薦網站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .search-bar {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 70%;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        .movie-card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin: 15px;
+            padding: 20px;
+            text-align: center;
+            display: inline-block;
+            width: 220px;
+            vertical-align: top;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .movie-title {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #000;
+        }
+        .rating {
+            color: #FFD700;
+            margin-top: 10px;
+        }
+        .recommendation-reason {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">電影推薦</h1>
 
-    <input type="text" id="searchInput" placeholder="搜尋電影..." oninput="searchMovies()" />
+    <header>
+        <h1>AI電影推薦網站</h1>
+        <p>根據你的興趣推薦電影</p>
+    </header>
 
-    <div class="filters">
-      <button onclick="filterCategory('全部')">全部</button>
-      <button onclick="filterCategory('科幻')">科幻</button>
-      <button onclick="filterCategory('劇情')">劇情</button>
-      <button onclick="filterCategory('愛情')">愛情</button>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜尋電影...">
+        </div>
+
+        <div class="movie-cards">
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 1">
+                <div class="movie-title">電影名稱 1</div>
+                <div class="rating">★★★★☆</div>
+                <div class="recommendation-reason">推薦理由：這部電影深受影迷喜愛，劇情緊湊，充滿驚險。</div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 2">
+                <div class="movie-title">電影名稱 2</div>
+                <div class="rating">★★★☆☆</div>
+                <div class="recommendation-reason">推薦理由：這部電影改編自經典小說，演技精湛。</div>
+            </div>
+
+            <!-- More movie cards here -->
+        </div>
     </div>
 
-    <div id="movieList" class="movie-list"></div>
-  </div>
+    <footer>
+        <p>&copy; 2025 沈予禾 - AI電影推薦網站</p>
+    </footer>
 
-  <!-- 電影詳情彈窗 -->
-  <div class="modal" id="movieModal">
-    <div class="modal-content" id="modalContent">
-      <span class="close-btn" onclick="closeModal()">×</span>
-    </div>
-  </div>
+    <script>
+        // You can add JavaScript for the search functionality or other features here
+        document.getElementById("searchInput").addEventListener("input", function() {
+            const searchQuery = this.value.toLowerCase();
+            const movieCards = document.querySelectorAll(".movie-card");
+            
+            movieCards.forEach(card => {
+                const title = card.querySelector(".movie-title").textContent.toLowerCase();
+                if (title.includes(searchQuery)) {
+                    card.style.display = "inline-block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
 
-  <script src="script.js"></script>
 </body>
 </html>
