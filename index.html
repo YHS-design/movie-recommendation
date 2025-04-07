@@ -1,145 +1,285 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>電影推薦系統</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      text-align: center;
-    }
-
-    header {
-      padding: 30px 0;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    #movie-card {
-      background-color: #111;
-      border: 2px solid transparent;
-      padding: 20px;
-      margin: 20px auto;
-      width: 320px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    #movie-card:hover {
-      border-color: white;
-      box-shadow: 0 0 10px white;
-    }
-
-    #movie-poster {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin: 10px;
-      background-color: transparent;
-      border: 2px solid white;
-      color: white;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background-color: white;
-      color: black;
-    }
-
-    #favorites-list {
-      margin-top: 30px;
-    }
-
-    .favorite-item {
-      background-color: #111;
-      margin: 10px auto;
-      padding: 10px;
-      border-radius: 6px;
-      width: 280px;
-      font-size: 0.95em;
-    }
-
-    footer {
-      padding: 20px;
-      font-size: 0.8em;
-      color: #666;
-    }
-  </style>
+  <title>電影推薦網站</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <h1 class="title">電影推薦</h1>
 
-  <header>
-    <h1>電影推薦系統</h1>
-    <p>探索精彩電影世界，點擊獲得推薦並收藏你喜歡的電影！</p>
-  </header>
+    <input type="text" id="searchInput" placeholder="搜尋電影..." oninput="searchMovies()">
 
-  <div id="movie-card">
-    <img id="movie-poster" src="" alt="電影海報">
-    <h2 id="movie-title">電影標題</h2>
-    <p id="movie-description">這裡會顯示電影簡介</p>
+    <div class="filters">
+      <button onclick="filterCategory('全部')">全部</button>
+      <button onclick="filterCategory('科幻')">科幻</button>
+      <button onclick="filterCategory('劇情')">劇情</button>
+      <button onclick="filterCategory('愛情')">愛情</button>
+    </div>
+
+    <div id="movieList" class="movie-list"></div>
   </div>
 
-  <button onclick="recommendMovie()">給我推薦！</button>
-  <button onclick="addToFavorites()">加入收藏</button>
-
-  <div id="favorites-list">
-    <h3>已收藏的電影：</h3>
-    <div id="favorites"></div>
+  <script src="script.js"></script>
+  <div class="modal" id="movieModal">
+  <div class="modal-content" id="modalContent">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <!-- 動態插入內容 -->
   </div>
-
-  <footer>© 2025 by YHS | 黑白極簡風設計</footer>
-
-  <script>
-    const movies = [
-      { title: "寄生上流", description: "關於貧富差距的黑色喜劇。", poster: "https://upload.wikimedia.org/wikipedia/zh/9/9b/Parasite_2019_poster.jpg" },
-      { title: "銀翼殺手2049", description: "探索人性與人工智慧的邊界。", poster: "https://upload.wikimedia.org/wikipedia/zh/0/00/Blade_Runner_2049_poster.jpg" },
-      { title: "天能", description: "打破時間邏輯的動作大片。", poster: "https://upload.wikimedia.org/wikipedia/zh/f/fc/Tenet_movie_poster.jpg" },
-      { title: "她", description: "一段與 AI 談戀愛的故事。", poster: "https://upload.wikimedia.org/wikipedia/zh/7/76/Her2013Poster.jpg" },
-      { title: "楚門的世界", description: "如果你人生是一場真人秀？", poster: "https://upload.wikimedia.org/wikipedia/zh/thumb/f/fc/Truman_Show.jpg/220px-Truman_Show.jpg" },
-      { title: "星際效應", description: "穿越宇宙與時間的父女情。", poster: "https://upload.wikimedia.org/wikipedia/zh/b/bc/Interstellar_film_poster.jpg" },
-      { title: "控制", description: "失控的愛與 AI 的自我意識。", poster: "https://upload.wikimedia.org/wikipedia/zh/5/55/Exmachina2015.jpg" },
-      { title: "模仿遊戲", description: "數學天才與二戰密碼戰。", poster: "https://upload.wikimedia.org/wikipedia/zh/8/8a/The_Imitation_Game_Poster.jpg" },
-      { title: "頭號玩家", description: "虛擬世界的冒險與現實反思。", poster: "https://upload.wikimedia.org/wikipedia/zh/2/20/Ready_Player_One.png" },
-      { title: "AI人工智慧", description: "機器人孩子對母愛的渴望。", poster: "https://upload.wikimedia.org/wikipedia/zh/f/f0/Ai_artificial_intelligence_ver1.jpg" }
-    ];
-
-    let currentMovie = null;
-    const favorites = [];
-
-    function recommendMovie() {
-      const randomIndex = Math.floor(Math.random() * movies.length);
-      currentMovie = movies[randomIndex];
-      document.getElementById("movie-title").textContent = currentMovie.title;
-      document.getElementById("movie-description").textContent = currentMovie.description;
-      document.getElementById("movie-poster").src = currentMovie.poster;
-    }
-
-    function addToFavorites() {
-      if (currentMovie && !favorites.includes(currentMovie.title)) {
-        favorites.push(currentMovie.title);
-        const div = document.createElement("div");
-        div.className = "favorite-item";
-        div.textContent = currentMovie.title + " - " + currentMovie.description;
-        document.getElementById("favorites").appendChild(div);
-      }
-    }
-
-    // 預設載入第一部推薦電影
-    window.onload = recommendMovie;
-  </script>
-
+</div>
 </body>
 </html>
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #000;
+  background-color: transparent;
+  color: #000;
+}
+
+.filters {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.movie {
+  border: 1px solid #000;
+  padding: 15px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.movie h2 {
+  margin: 0;
+}
+
+.movie .stars {
+  margin: 10px 0;
+}
+
+.star {
+  color: #000;
+  font-size: 18px;
+}
+
+.recommendation {
+  font-size: 0.9em;
+  color: #555;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.movie {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 30px;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.favorite-btn {
+  background-color: transparent;
+  border: 1px solid #000;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+}
+
+.favorite-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .movie-list {
+    grid-template-columns: 1fr;
+  }
+}
+const movies = [
+  {
+    title: '星際效應',
+    category: '科幻',
+    rating: 5,
+    reason: '根據你的喜好「時間旅行」與「太空探索」推薦。',
+    description: '一名太空人為拯救人類穿越蟲洞尋找新家園。',
+    director: 'Christopher Nolan',
+    year: 2014
+  },
+  {
+    title: '你的名字',
+    category: '愛情',
+    rating: 4,
+    reason: '你喜歡青春愛情動畫，這部絕對不能錯過。',
+    description: '一對男女在夢中互換身體，展開跨越時空的奇妙緣分。',
+    director: '新海誠',
+    year: 2016
+  },
+  {
+    title: '寄生上流',
+    category: '劇情',
+    rating: 5,
+    reason: '因為你喜歡揭示社會議題的劇情片。',
+    description: '貧富階級的對立與衝突，在一場騙局中爆發。',
+    director: '奉俊昊',
+    year: 2019
+  },
+  {
+    title: '全面啟動',
+    category: '科幻',
+    rating: 4,
+    reason: '你喜歡夢境與心理層面的深度電影。',
+    description: '潛入他人夢境植入思想的高智商動作片。',
+    director: 'Christopher Nolan',
+    year: 2010
+  }
+];
+
+let currentCategory = '全部';
+
+function displayMovies() {
+  const list = document.getElementById('movieList');
+  movieDiv.innerHTML = `
+  <h2>${movie.title}</h2>
+  <div class="stars">${stars}</div>
+  <div class="recommendation">${movie.reason}</div>
+`;
+movieDiv.onclick = () => showDetails(movie);
+function showDetails(movie) {
+  const modal = document.getElementById('movieModal');
+  const content = document.getElementById('modalContent');
+
+  content.innerHTML = `
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <h3>${movie.title}</h3>
+    <p><strong>導演：</strong> ${movie.director}</p>
+    <p><strong>年份：</strong> ${movie.year}</p>
+    <p><strong>簡介：</strong> ${movie.description}</p>
+    <p><strong>推薦理由：</strong> ${movie.reason}</p>
+    <button class="favorite-btn" onclick="addToFavorites('${movie.title}')">收藏</button>
+  `;
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('movieModal').style.display = 'none';
+}
+
+function addToFavorites(title) {
+  alert(`已收藏「${title}」！`);
+  closeModal();
+}
+  filtered.forEach(movie => {
+    const movieDiv = document.createElement('div');
+    movieDiv.className = 'movie';
+
+    const stars = '★'.repeat(movie.rating) + '☆'.repeat(5 - movie.rating);
+
+    movieDiv.innerHTML = `
+      <h2>${movie.title}</h2>
+      <div class="stars">${stars}</div>
+      <div class="recommendation">${movie.reason}</div>
+    `;
+
+    list.appendChild(movieDiv);
+  });
+}
+
+function searchMovies() {
+  displayMovies();
+}
+
+function filterCategory(category) {
+  currentCategory = category;
+  displayMovies();
+}
+window.onload = displayMovies;
