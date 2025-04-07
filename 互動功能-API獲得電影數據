@@ -61,3 +61,107 @@ if (document.getElementById("movie-container")) {
 if (document.getElementById("movie-title")) {
     document.addEventListener("DOMContentLoaded", loadMovieDetails);
 }
+const movies = [
+  {
+    title: '星際效應',
+    category: '科幻',
+    rating: 5,
+    reason: '根據你的喜好「時間旅行」與「太空探索」推薦。',
+    description: '一名太空人為拯救人類穿越蟲洞尋找新家園。',
+    director: 'Christopher Nolan',
+    year: 2014
+  },
+  {
+    title: '你的名字',
+    category: '愛情',
+    rating: 4,
+    reason: '你喜歡青春愛情動畫，這部絕對不能錯過。',
+    description: '一對男女在夢中互換身體，展開跨越時空的奇妙緣分。',
+    director: '新海誠',
+    year: 2016
+  },
+  {
+    title: '寄生上流',
+    category: '劇情',
+    rating: 5,
+    reason: '因為你喜歡揭示社會議題的劇情片。',
+    description: '貧富階級的對立與衝突，在一場騙局中爆發。',
+    director: '奉俊昊',
+    year: 2019
+  },
+  {
+    title: '全面啟動',
+    category: '科幻',
+    rating: 4,
+    reason: '你喜歡夢境與心理層面的深度電影。',
+    description: '潛入他人夢境植入思想的高智商動作片。',
+    director: 'Christopher Nolan',
+    year: 2010
+  }
+];
+
+let currentCategory = '全部';
+
+function displayMovies() {
+  const list = document.getElementById('movieList');
+  list.innerHTML = '';
+
+  const search = document.getElementById('searchInput').value;
+
+  const filtered = movies.filter(movie =>
+    (currentCategory === '全部' || movie.category === currentCategory) &&
+    movie.title.includes(search)
+  );
+
+  filtered.forEach(movie => {
+    const movieDiv = document.createElement('div');
+    movieDiv.className = 'movie';
+
+    const stars = '★'.repeat(movie.rating) + '☆'.repeat(5 - movie.rating);
+
+    movieDiv.innerHTML = `
+      <h2>${movie.title}</h2>
+      <div class="stars">${stars}</div>
+      <div class="recommendation">${movie.reason}</div>
+    `;
+
+    movieDiv.onclick = () => showDetails(movie);
+    list.appendChild(movieDiv);
+  });
+}
+
+function searchMovies() {
+  displayMovies();
+}
+
+function filterCategory(category) {
+  currentCategory = category;
+  displayMovies();
+}
+
+function showDetails(movie) {
+  const modal = document.getElementById('movieModal');
+  const content = document.getElementById('modalContent');
+
+  content.innerHTML = `
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <h3>${movie.title}</h3>
+    <p><strong>導演：</strong> ${movie.director}</p>
+    <p><strong>年份：</strong> ${movie.year}</p>
+    <p><strong>簡介：</strong> ${movie.description}</p>
+    <p><strong>推薦理由：</strong> ${movie.reason}</p>
+    <button class="favorite-btn" onclick="addToFavorites('${movie.title}')">收藏</button>
+  `;
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('movieModal').style.display = 'none';
+}
+
+function addToFavorites(title) {
+  alert(`已收藏「${title}」！`);
+  closeModal();
+}
+
+window.onload = displayMovies;
