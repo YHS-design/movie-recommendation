@@ -1,132 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI電影推薦網站</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            color: #333;
-        }
-        header {
-            background-color: #000;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .search-bar {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .search-bar input {
-            padding: 10px;
-            width: 70%;
-            font-size: 16px;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-        }
-        .movie-card {
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            margin: 15px;
-            padding: 20px;
-            text-align: center;
-            display: inline-block;
-            width: 220px;
-            vertical-align: top;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .movie-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-        .movie-title {
-            font-size: 18px;
-            margin: 10px 0;
-            color: #000;
-        }
-        .rating {
-            color: #FFD700;
-            margin-top: 10px;
-        }
-        .recommendation-reason {
-            font-size: 14px;
-            color: #666;
-            margin-top: 10px;
-        }
-        footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI電影推薦網站</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .search-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 60%;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    .filter-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+    .movie-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .movie-card {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      margin: 15px;
+      padding: 15px;
+      width: 220px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.6s forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .movie-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .movie-title {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #000;
+    }
+    .rating {
+      color: #FFD700;
+      margin-top: 10px;
+    }
+    .recommendation-reason {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+    .favorite-btn {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border: 1px solid #000;
+      background-color: transparent;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .favorite-btn.favorited {
+      background-color: #000;
+      color: #fff;
+    }
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>AI電影推薦網站</h1>
+    <p>根據你的興趣推薦電影</p>
+  </header>
 
-    <header>
-        <h1>AI電影推薦網站</h1>
-        <p>根據你的興趣推薦電影</p>
-    </header>
-
-    <div class="container">
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="搜尋電影...">
-        </div>
-
-        <div class="movie-cards">
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 1">
-                <div class="movie-title">電影名稱 1</div>
-                <div class="rating">★★★★☆</div>
-                <div class="recommendation-reason">推薦理由：這部電影深受影迷喜愛，劇情緊湊，充滿驚險。</div>
-            </div>
-
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 2">
-                <div class="movie-title">電影名稱 2</div>
-                <div class="rating">★★★☆☆</div>
-                <div class="recommendation-reason">推薦理由：這部電影改編自經典小說，演技精湛。</div>
-            </div>
-
-            <!-- More movie cards here -->
-        </div>
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="搜尋電影...">
     </div>
 
-    <footer>
-        <p>&copy; 2025 沈予禾 - AI電影推薦網站</p>
-    </footer>
+    <div class="filter-bar">
+      <label for="genreFilter">分類篩選：</label>
+      <select id="genreFilter">
+        <option value="all">全部</option>
+        <option value="sci-fi">科幻</option>
+        <option value="drama">劇情</option>
+        <option value="romance">愛情</option>
+      </select>
+    </div>
 
-    <script>
-        // You can add JavaScript for the search functionality or other features here
-        document.getElementById("searchInput").addEventListener("input", function() {
-            const searchQuery = this.value.toLowerCase();
-            const movieCards = document.querySelectorAll(".movie-card");
-            
-            movieCards.forEach(card => {
-                const title = card.querySelector(".movie-title").textContent.toLowerCase();
-                if (title.includes(searchQuery)) {
-                    card.style.display = "inline-block";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        });
-    </script>
+    <div class="movie-cards" id="movieList">
+      <!-- 電影項目（加入 data-genre）-->
+      <div class="movie-card" data-title="全面啟動" data-genre="sci-fi">
+        <img src="https://via.placeholder.com/200x300?text=Inception" alt="Inception">
+        <div class="movie-title">全面啟動</div>
+        <div class="rating">★★★★★</div>
+        <div class="recommendation-reason">推薦理由：劇情燒腦又緊湊，適合喜歡推理的你。</div>
+        <button class="favorite-btn">收藏</button>
+      </div>
 
+      <div class="movie-card" data-title="星際效應" data-genre="sci-fi">
+        <img src="https://via.placeholder.com/200x300?text=Interstellar" alt="Interstellar">
+        <div class="movie-title">星際效應</div>
+        <div class="rating">★★★★☆</div>
+        <div class="recommendation-reason">推薦理由：探索宇宙與人性之間的深刻連結。</div>
+        <button class="favorite-btn">收藏</button>
+      </div>
+
+      <div class="movie-card" data-title="寄生上流" data-genre="drama">
+        <img src="https://via.placeholder.com/200x300?text=Parasite" alt="Parasite">
+        <div class="movie-title">寄生上流</div>
+        <div class="rating">★★★★☆</div>
+        <div class="recommendation-reason">推薦理由：社會階級描寫犀利，引人深思。</div>
+        <button class="favorite-btn">收藏</button>
+      </div>
+
+      <div class="movie-card" data-title="蝙蝠俠" data-genre="sci-fi">
+        <img src="https://via.placeholder.com/200x300?text=The+Batman" alt="The Batman">
+        <div class="movie-title">蝙蝠俠</div>
+        <div class="rating">★★★★☆</div>
+        <div class="recommendation-reason">推薦理由：黑暗風格，適合偵探推理迷。</div>
+        <button class="favorite-btn">收藏</button>
+      </div>
+
+      <div class="movie-card" data-title="你的名字" data-genre="romance">
+        <img src="https://via.placeholder.com/200x300?text=Your+Name" alt="Your Name">
+        <div class="movie-title">你的名字</div>
+        <div class="rating">★★★☆☆</div>
+        <div class="recommendation-reason">推薦理由：畫面唯美、情感真摯，青春感滿滿。</div>
+        <button class="favorite-btn">收藏</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 沈予禾 - AI電影推薦網站</p>
+  </footer>
+
+  <script>
+    // 搜尋功能
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+      const cards = document.querySelectorAll(".movie-card");
+
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(query) ? "block" : "none";
+      });
+    });
+
+    // 分類篩選功能
+    document.getElementById("genreFilter").addEventListener("change", function () {
+      const selectedGenre = this.value;
+      const cards = document.querySelectorAll(".movie-card");
+
+      cards.forEach(card => {
+        const genre = card.dataset.genre;
+        if (selectedGenre === "all" || genre === selectedGenre) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+
+    // 收藏功能 (保存到 localStorage)
+    document.querySelectorAll(".favorite-btn").forEach((btn, index) => {
+      const movieKey = `favorite-${index}`;
+      if (localStorage.getItem(movieKey) === "true") {
+        btn.classList.add("favorited");
+        btn.textContent = "已收藏";
+      }
+
+      btn.addEventListener("click", function () {
+        this.classList.toggle("favorited");
+        const isFav = this.classList.contains("favorited");
+        this.textContent = isFav ? "已收藏" : "收藏";
+        localStorage.setItem(movieKey, isFav);
+      });
+    });
+  </script>
 </body>
 </html>
