@@ -99,6 +99,7 @@
       <option value="sci-fi">科幻</option>
       <option value="drama">劇情</option>
       <option value="romance">愛情</option>
+      <option value="animation">動漫</option>
     </select>
 
     <div class="movie-cards" id="movieList">
@@ -121,7 +122,7 @@
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "劇情燒腦又緊湊，適合喜歡推理的你。",
-        poster: "https://image.tmdb.org/t/p/w300/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg"
+        poster: "https://image.tmdb.org/t/p/original/aBGVsKeDn5gtegkyajPGBHWev25.jpg"
       },
       {
         title: "星際效應",
@@ -142,7 +143,7 @@
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "黑暗風格，適合偵探推理迷。",
-        poster: "https://image.tmdb.org/t/p/w300/74xTEgt7R36Fpooo50r9T25onhq.jpg"
+        poster: "https://image.tmdb.org/t/p/original/d7mF9W1EdVT5gl3m9z4rCpgLb9D.jpg"
       },
       {
         title: "你的名字",
@@ -156,469 +157,549 @@
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "結合超級英雄的終極對決。",
-        poster: "https://image.tmdb.org/t/p/w300/ggR02ISk1ayabYmfvONfnfKqI9J.jpg"
+        poster: "https://image.tmdb.org/t/p/original/fXgoEedB0k5TgaYrBqbY3eZ3DAI.jpg"
       },
       {
         title: "泰坦尼克號",
         genre: "romance",
         rating: "★★★★★",
         reason: "永恆的經典愛情故事。",
-        poster: "https://image.tmdb.org/t/p/w300/ugWq7uzc0QZ2TLvQdUxl9eIHhGb.jpg"
+        poster: "https://image.tmdb.org/t/p/original/gi2X1IQHOzm53xUKCm8r1N7zvm8.jpg"
       },
       {
         title: "侏羅紀公園",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "恐龍與科技的完美結合。",
-        poster: "https://image.tmdb.org/t/p/w300/5X24LJtmtjqgBZZ0QlkWVOpwYtQ.jpg"
+        poster: "https://image.tmdb.org/t/p/original/3lc4BtWBIWHFln1YMhzjj3DwL4g.jpg"
       },
       {
         title: "黑豹",
         genre: "sci-fi",
         rating: "★★★★☆",
-        reason: "非洲文化與超級英雄的碰撞。",
-        poster: "https://image.tmdb.org/t/p/w300/7WgAfwD72GbDWzRnnKOnpge2nqp.jpg"
+        reason: "科技應用與超級英雄的碰撞。",
+        poster: "https://image.tmdb.org/t/p/original/op1gn2mK4ohZfhpKj92KEbwvc9C.jpg"
       },
       {
-        title: "The Matrix",
+        title: "捍衛戰士",
         genre: "sci-fi",
-        rating: "★★★★★",
-        reason: "虛擬與現實的界限模糊。",
-        poster: "https://image.tmdb.org/t/p/w300/fuWqgF5pGV8f6ovBh2Eq9DJ0qI5.jpg"
-      },
-      {
-        title: "為奴十二年",
-        genre: "drama",
-        rating: "★★★★★",
-        reason: "揭示人類尊嚴與自由的故事。",
-        poster: "https://image.tmdb.org/t/p/w300/i2fU3XfmZ9XyQh1esxPLVgB1Qzo.jpg"
-      },
-      {
-        title: "壯志凌雲",
-        genre: "drama",
         rating: "★★★★☆",
         reason: "軍人與戰友間的情誼。",
-        poster: "https://image.tmdb.org/t/p/w300/mNlyFHyv1sIB9MBOPetb7tivh0w.jpg"
+        poster: "https://image.tmdb.org/t/p/original/zpciuyCBq2LHAMdjxB62ccpQRbJ.jpg"
       },
       {
-        title: "綠皮書",
+        title: "幸福綠皮書",
         genre: "drama",
         rating: "★★★★★",
-        reason: "改變世界的友誼之旅。",
-        poster: "https://image.tmdb.org/t/p/w300/q3HwfHe06ie7dZT7OT7Sy9upIYg.jpg"
+        reason: "超越種族藩膚色、階級籬和社會人的友誼。",
+        poster: "https://image.tmdb.org/t/p/original/8j25XDuKAsZFPd9MPqt5a6DnYhJ.jpg"
       },
       {
         title: "復仇者聯盟",
         genre: "sci-fi",
         rating: "★★★★☆",
-        reason: "超級英雄的首次聚集。",
-        poster: "https://image.tmdb.org/t/p/w300/kZyn4usH5ymvqdc3LsYBG4Ut41Gk.jpg"
+        reason: "群雄集結終極一戰。",
+        poster: "https://image.tmdb.org/t/p/original/wwYacxH9vQoOUZvtZLMtZKy0VcF.jpg"
       },
       {
         title: "阿甘正傳",
         genre: "drama",
         rating: "★★★★★",
         reason: "人性的堅持與希望。",
-        poster: "https://image.tmdb.org/t/p/w300/ry1rXyhaZsA5oKnD9mK5lbwULIK.jpg"
+        poster: "https://image.tmdb.org/t/p/original/Ace1AhTTz2PQ2OVaX5mfZ7ey7Gv.jpg"
       },
       {
-        title: "星際大戰：原力覺醒",
+        title: "星際大戰七部曲：原力覺醒",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "全新故事與經典人物的回歸。",
-        poster: "https://image.tmdb.org/t/p/w300/jeAqK9ZTAA9xlZfvV19LBhPpxYO.jpg"
+        poster: "https://image.tmdb.org/t/p/original/wNdrXBAFbfgpKgprtTFnoePn86x.jpg"
       },
       {
         title: "辛德勒的名單",
         genre: "drama",
         rating: "★★★★★",
         reason: "二戰中拯救無數生命的故事。",
-        poster: "https://image.tmdb.org/t/p/w300/cYYcMtDCniQ2sSry69yS43wHh0T.jpg"
+        poster: "https://image.tmdb.org/t/p/original/kukYu89yda6NrifW5kpLoOTU7YH.jpg"
       },
       {
         title: "獅子王",
         genre: "drama",
         rating: "★★★★★",
         reason: "迪士尼經典動畫，充滿情感與冒險。",
-        poster: "https://image.tmdb.org/t/p/w300/vQG9zV5bLg9nZTNhkLNv5xxdfUm.jpg"
+        poster: "https://image.tmdb.org/t/p/original/bby1ZxrptTycWhe0HA3wduNvKwO.jpg"
       },
       {
         title: "無敵破壞王",
         genre: "drama",
         rating: "★★★★☆",
         reason: "一個電玩世界裡的破壞王，他的冒險之旅。",
-        poster: "https://image.tmdb.org/t/p/w300/woXxTExHrd6Xhv6VpW4iZXRIuYf.jpg"
+        poster: "https://image.tmdb.org/t/p/original/4TOLICjNSde19HGClhoQttgmGL2.jpg"
       },
       {
         title: "狂野時速",
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "充滿速度、動作與震撼的極限賽車。",
-        poster: "https://image.tmdb.org/t/p/w300/ga9HeeKmZzOHhApDDN5gf4RjF4v.jpg"
+        poster: "https://image.tmdb.org/t/p/original/9cDiwaIu7kmQOTE9TidwC2y7rsb.jpg"
       },
       {
-        title: "神奇女俠",
+        title: "神奇女超人",
         genre: "sci-fi",
         rating: "★★★★☆",
-        reason: "來自天堂的女神，拯救世界。",
-        poster: "https://image.tmdb.org/t/p/w300/gS95KNhlqkPxxeW3w9J8XkIrw3c.jpg"
+        reason: "來自天堂的神力女神，拯救世界。",
+        poster: "https://image.tmdb.org/t/p/original/JNrkn3t7Dt8FfdS7NrH6ni9JE3.jpg"
       },
       {
-        title: "星際大戰：原力覺醒",
-        genre: "sci-fi",
-        rating: "★★★★☆",
-        reason: "星際大戰系列的全新篇章。",
-        poster: "https://image.tmdb.org/t/p/w300/t50ZnobtiZLl5dknXxSwHr8C3yg.jpg"
-      },
-      {
-        title: "死侍",
+        title: "惡棍英雄-死侍",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "幽默且不拘一格的超級英雄電影。",
-        poster: "https://image.tmdb.org/t/p/w300/gllf5yfpyhzpZRyCpxa0l5ZFB2z.jpg"
+        poster: "https://image.tmdb.org/t/p/original/uoEvIHCpli8qfMHnFRG6QxJA4tm.jpg"
       },
       {
         title: "環太平洋",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "機器人與怪獸的震撼對決。",
-        poster: "https://image.tmdb.org/t/p/w300/l3Bp5dOD7yhrHBt0gE82kgptphq.jpg"
+        poster: "https://image.tmdb.org/t/p/original/yleHCsoU1UaDBoQFOJMkzsNP7lu.jpg"
       },
       {
         title: "攻殼機動隊",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "未來世界與人性，充滿哲理。",
-        poster: "https://image.tmdb.org/t/p/w300/1m0yXg0Xlt6jIsZzAt0tDgTbOsY.jpg"
+        poster: "https://image.tmdb.org/t/p/original/vTlbCIr174uMVL1Y9uVdmaIsCo2.jpg"
       },
       {
         title: "終結者：黑暗命運",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "機器與人類的終極對決。",
-        poster: "https://image.tmdb.org/t/p/w300/5ZGqBOZp8IszYoRCOhD9O9HzIRv.jpg"
+        poster: "https://image.tmdb.org/t/p/original/fQeJbfEGvG2m273I52c2xdCArcA.jpg"
       },
       {
-        title: "猩球崛起：黎明之戰",
+        title: "猩球崛起：黎明的進擊",
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "史詩般的冒險，動物與人類的對抗。",
-        poster: "https://image.tmdb.org/t/p/w300/aAfsAftY0SlHZ9t9VnzKwEpuwzi.jpg"
+        poster: "https://image.tmdb.org/t/p/original/bFCHdkiXTppqtqHXjpiSjpK5hxi.jpg"
       },
       {
         title: "大英雄天團",
         genre: "drama",
         rating: "★★★★★",
         reason: "感動人心的動畫，機器人與友情。",
-        poster: "https://image.tmdb.org/t/p/w300/dcGz13AyyUq1uWReboW2s2KKvMl.jpg"
+        poster: "https://image.tmdb.org/t/p/original/hOBEWzEbCmCrwxStFpzLCsBq51.jpg"
       },
       {
-        title: "雪花秘扇",
+        title: "雪花與秘扇",
         genre: "drama",
         rating: "★★★★★",
         reason: "兩個女性之間深厚的友誼與愛情。",
-        poster: "https://image.tmdb.org/t/p/w300/vQs34TbSbDQfbftHtG7f6Vs97By.jpg"
+        poster: "https://image.tmdb.org/t/p/original/eshc4vgwPkEujB2AgcmD0QplDLB.jpg"
       },
       {
-        title: "駭客帝國",
+        title: "駭客任務",
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "哲學與科技的碰撞，意識與虛擬的邊界。",
-        poster: "https://image.tmdb.org/t/p/w300/cMOnu7qkhU5e5wJOsCxAyj6Wtp7.jpg"
+        poster: "https://image.tmdb.org/t/p/original/vsTC6jddyfy25GirpCVtZ7GOB7A.jpg"
       },
       {
-        title: "美麗心靈",
+        title: "美麗境界",
         genre: "drama",
         rating: "★★★★★",
         reason: "天才數學家的故事，心靈的糾葛。",
-        poster: "https://image.tmdb.org/t/p/w300/mRjmR6yUg72EvACmXHVRtQKH0p8.jpg"
+        poster: "https://image.tmdb.org/t/p/original/hI5JXboO4PClTvRO45aC49i3nKE.jpg"
       },
       {
-        title: "霍比特人：意外旅程",
+        title: "哈比人：意外旅程",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "中土世界的冒險，劇情引人入勝。",
-        poster: "https://image.tmdb.org/t/p/w300/5Dnm8Epyov25Nqa5xfLgf4xFkHJ.jpg"
-        },
+        poster: "https://image.tmdb.org/t/p/original/lUYg2q4sWwk7iWSHYUFoQ8a8K0n.jpg"
+      },
       {
-        title: "海灘男孩",
+        title: "沙灘男孩",
         genre: "drama",
         rating: "★★★☆☆",
         reason: "溫暖又感傷的劇情，對友誼的描繪細膩。",
-        poster: "https://image.tmdb.org/t/p/w300/y41UgQddhjMzw6XXhOfx7S8lG2A.jpg"
+        poster: "https://image.tmdb.org/t/p/original/ajaXu8bWaBuGEUsilhZOna7t7QE.jpg"
       },
       {
-        title: "黑天鵝",
+        title: "黑天鵝湖",
         genre: "drama",
         rating: "★★★★☆",
-        reason: "心理驚悚片，充滿張力和不確定感。",
-        poster: "https://image.tmdb.org/t/p/w300/vOt71GoHxoRxmiZYdHDc6f9C8IT.jpg"
+        reason: "心理懸疑片，充滿張力和不確定性。",
+        poster: "https://image.tmdb.org/t/p/original/2v131OQVoBrXTKzAM1w9ecjIBy0.jpg"
       },
       {
         title: "死侍2",
         genre: "sci-fi",
         rating: "★★★★☆",
-        reason: "幽默與動作並重，繼續擁抱破格的超級英雄。",
-        poster: "https://image.tmdb.org/t/p/w300/c0EoD4Xgt9yDQaj59wbkDbwMS5u.jpg"
+        reason: "幽默與動作感，繼續擁抱破格的超級英雄。",
+        poster: "https://image.tmdb.org/t/p/original/3nCUY6Or2yXVnSfY5ctdMPoLa7B.jpg"
       },
       {
         title: "古墓奇兵",
         genre: "action",
         rating: "★★★★☆",
-        reason: "充滿冒險與動作，英雄氣概十足。",
-        poster: "https://image.tmdb.org/t/p/w300/pxwn6Zlsr8Csp15yXMGiOD74tEv.jpg"
+        reason: "充滿冒險與動作，女英雄氣概十足。",
+        poster: "https://image.tmdb.org/t/p/original/roEGqXZ7I8qAT1XtgxtoEuuksgm.jpg"
       },
       {
         title: "刀劍神域",
         genre: "animation",
         rating: "★★★★☆",
         reason: "科幻與奇幻相結合，讓人對虛擬世界充滿遐想。",
-        poster: "https://image.tmdb.org/t/p/w300/jpnjs0gF1O6pMPkC1D7r5p8fO1I.jpg"
+        poster: "https://image.tmdb.org/t/p/original/4RgzK8SmB3olmqVXQXUdhbFfPah.jpg"
       },
       {
         title: "復仇者聯盟：無限之戰",
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "集結所有英雄，終極對決讓人熱血沸騰。",
-        poster: "https://image.tmdb.org/t/p/w300/mPYkG69Ym9FJhwbXjt1M8UsfgH0.jpg"
+        poster: "https://image.tmdb.org/t/p/original/pXCrmOMpdGQmx9UGrZAD0Bl8s07.jpg"
       },
       {
         title: "小丑",
         genre: "drama",
         rating: "★★★★★",
-        reason: "一個深刻探討心理的影片，表現極為出色。",
-        poster: "https://image.tmdb.org/t/p/w300/gsSHfVxvsWI9ShVsqdZtGHG6KTq.jpg"
+        reason: "一個深刻探討心理的黑色幽默電影，演員表現極為出色。",
+        poster: "https://image.tmdb.org/t/p/original/kjNbXFfYLDUdFpfaMkzHbJ5Zq30.jpg"
       },
       {
-        title: "冰河世紀",
+        title: "冰原歷險記",
         genre: "animation",
         rating: "★★★★★",
         reason: "精彩有趣的動畫，適合全家觀賞。",
-        poster: "https://image.tmdb.org/t/p/w300/j2UGLVzzgAeUjwZ8mjZQ5lbHpQw.jpg"
+        poster: "https://image.tmdb.org/t/p/original/7r8igfG6bLfuKJWHFLrdq3u6Jte.jpg"
       },
       {
         title: "逃出絕命鎮",
         genre: "horror",
         rating: "★★★★☆",
         reason: "一部充滿驚悚和反思的恐怖片。",
-        poster: "https://image.tmdb.org/t/p/w300/n8Oal2jdcHpQgkG9tS8AkqdGq9h.jpg"
+        poster: "https://image.tmdb.org/t/p/original/zh5EhQTmtlpaG2T15JTxx6IsRsE.jpg"
       },
       {
-        title: "黑豹2",
+        title: "震撼聽覺黑豹2配樂特輯",
         genre: "sci-fi",
         rating: "★★★★☆",
-        reason: "延續第一部的精彩，加入更多新角色。",
-        poster: "https://image.tmdb.org/t/p/w300/nG5M6nMXbkyzrBLgtSHptRfMWyF.jpg"
+        reason: "延續第一部的優美音樂，加入更多新音樂。",
+        poster: "https://image.tmdb.org/t/p/original/paqPctskpq8bMjqALqQs8iYo8fi.jpg"
       },
       {
-        title: "遊戲人生",
+        title: "賭博默示錄：人生逆轉遊戲",
         genre: "animation",
         rating: "★★★★★",
         reason: "一個充滿心智遊戲與挑戰的冒險故事。",
-        poster: "https://image.tmdb.org/t/p/w300/mgXY99C3D98Jj7XqOLqZQ9F2qOV.jpg"
+        poster: "https://image.tmdb.org/t/p/original/1tGpj3qHkHdiwWwEQ3BpOUKbWjc.jpg"
       },
       {
-        title: "極限特工：再生",
+        title: "極限特工",
         genre: "action",
         rating: "★★★★☆",
         reason: "極限運動與高風險的動作電影。",
-        poster: "https://image.tmdb.org/t/p/w300/yPFLFtnmJ3MeVldLSz79Hn5iY8S.jpg"
+        poster: "https://image.tmdb.org/t/p/original/iZ9R27GSbBWYO9AYv7CLLty9Ap.jpg"
       },
       {
-        title: "驚天魔盗團",
+        title: "出神入化",
         genre: "action",
         rating: "★★★★☆",
         reason: "充滿智謀和驚險的盜賊電影。",
-        poster: "https://image.tmdb.org/t/p/w300/lM7dA5fcD98PxxmG3N6tUvLa2ZT.jpg"
-      },
-      {
-        title: "黑客帝國：重啟",
-        genre: "sci-fi",
-        rating: "★★★★☆",
-        reason: "經典系列重啟，讓人重新思考現實與虛擬的界限。",
-        poster: "https://image.tmdb.org/t/p/w300/aABPGmFrxzMkbl52Lx5R5Ed7AXX.jpg"
+        poster: "https://image.tmdb.org/t/p/original/gVuwtSoSxAcIXy7fKtfyvCK5oxo.jpg"
       },
       {
         title: "飢餓遊戲",
         genre: "action",
         rating: "★★★★☆",
         reason: "生死鬥爭，精彩刺激的冒險故事。",
-        poster: "https://image.tmdb.org/t/p/w300/g9dWiDe2C62YYj16vGcJlqlbHbY.jpg"
-        },
-      {
-        title: "靈異鬼照片",
-        genre: "horror",
-        rating: "★★★☆☆",
-        reason: "恐怖懸疑劇情，讓人心驚膽跳。",
-        poster: "https://image.tmdb.org/t/p/w300/cpD69WhA0cb3lK57fy6PUYjx7Up.jpg"
+        poster: "https://image.tmdb.org/t/p/original/tUbm6Fi1h0nVLmuRaTVkNp7oBug.jpg"
       },
       {
-        title: "間諜之橋",
-        genre: "drama",
-        rating: "★★★★☆",
-        reason: "史實改編，間諜與冷戰時期的精彩故事。",
-        poster: "https://image.tmdb.org/t/p/w300/4Ol7s1xR4VtOGPckovZxX9kV1Hg.jpg"
-      },
-      {
-        title: "速度與激情7",
+        title: "玩命關頭7",
         genre: "action",
         rating: "★★★★☆",
         reason: "再次駕駛極限，動作場面讓人目不暇接。",
-        poster: "https://image.tmdb.org/t/p/w300/hpwVpwsm93KnH6SeO4MVD5WwTev.jpg"
-        },
+        poster: "https://image.tmdb.org/t/p/original/fNZFqhIoE9Du1Gr6Py0rwhhV3fE.jpg"
+      },
       {
         title: "黑暗騎士",
         genre: "action",
         rating: "★★★★★",
         reason: "一部黑暗且深入的超級英雄電影。",
-        poster: "https://image.tmdb.org/t/p/w300/xUJwAtYp3pACz27jIM0F1ZddgyT.jpg"
+        poster: "https://image.tmdb.org/t/p/original/6pQMQQrnRWm2zweL5vWyyMHvAa6.jpg"
       },
       {
-        title: "蝙蝠俠：黑暗騎士崛起",
+        title: "黑暗騎士：黎明昇起",
         genre: "action",
         rating: "★★★★☆",
         reason: "終章之作，緊張刺激，收尾完美。",
-        poster: "https://image.tmdb.org/t/p/w300/xW2Fft5tjkrJmjI9wiKJdJ6YQwv.jpg"
+        poster: "https://image.tmdb.org/t/p/original/rFiVxVt83lFU5e3UyUjePo8wKeR.jpg"
       },
       {
-        title: "魔戒：護戒使者",
+        title: "魔戒：力量之城",
         genre: "fantasy",
         rating: "★★★★★",
         reason: "一場史詩般的冒險，描繪友情與勇氣的故事。",
-        poster: "https://image.tmdb.org/t/p/w300/mxHlH9VjYkq7E1htLAvwMNoy3S1.jpg"
+        poster: "https://image.tmdb.org/t/p/original/cmyNOnDnFiBNEH9fqf3VMY4gjnG.jpg"
       },
       {
-        title: "魔戒：雙塔奇兵",
-        genre: "fantasy",
-        rating: "★★★★★",
-        reason: "緊湊刺激，為魔戒系列的中篇之作。",
-        poster: "https://image.tmdb.org/t/p/w300/d71USpMlv78h02QkMdT0B32f0gk.jpg"
-      },
-      {
-        title: "魔戒：王者歸來",
-        genre: "fantasy",
-        rating: "★★★★★",
-        reason: "史詩大結局，情感充沛，驚心動魄。",
-        poster: "https://image.tmdb.org/t/p/w300/nt5JkFhW5Go6RpUSjbxpKbqmc8X.jpg"
-      },
-      {
-        title: "侏羅紀公園",
+        title: "侏羅紀公園：失落的世界",
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "恐龍與冒險的經典，科學與奇幻結合。",
-        poster: "https://image.tmdb.org/t/p/w300/oFCpmI9jip83ByJwKYdbI98bZHo.jpg"
-      },
-      {
-        title: "侏羅紀世界",
-        genre: "sci-fi",
-        rating: "★★★★☆",
-        reason: "重新打造的恐龍世界，驚險刺激的冒險片。",
-        poster: "https://image.tmdb.org/t/p/w300/6JTS58AEdwZGHL7yM0OX1Zzx5Yy.jpg"
+        poster: "https://image.tmdb.org/t/p/original/hlLMs7bN8XarlQT9TLigGsuZTaW.jpg"
       },
       {
         title: "阿凡達",
         genre: "sci-fi",
         rating: "★★★★★",
         reason: "視覺上的震撼，科技與自然的融合。",
-        poster: "https://image.tmdb.org/t/p/w300/p9d2hoyvLg5FBO1ApjFAe8eNXY3.jpg"
+        poster: "https://image.tmdb.org/t/p/original/aKeJgTDAiBe5hFgFgI3V3ChOLmh.jpg"
       },
       {
         title: "阿凡達：水之道",
         genre: "sci-fi",
         rating: "★★★★☆",
         reason: "延續阿凡達的世界觀，視覺效果更加驚人。",
-        poster: "https://image.tmdb.org/t/p/w300/qw7MhJ2prBlzozBZ5IQdU1ITJ3s.jpg"
+        poster: "https://image.tmdb.org/t/p/original/n5uGQgDtXV0EHp1REIrh0d0OdvS.jpg"
       },
       {
         title: "蜘蛛人：返校日",
         genre: "action",
         rating: "★★★★☆",
         reason: "以青春與冒險為背景的超級英雄故事。",
-        poster: "https://image.tmdb.org/t/p/w300/znsJymjchpzF5hw2zz0Zp7nk6tC.jpg"
+        poster: "https://image.tmdb.org/t/p/original/gJFq6a89d6ZKHuiyAWw7VGD1Me9.jpg"
       },
       {
         title: "蜘蛛人：無家日",
         genre: "action",
         rating: "★★★★★",
         reason: "感情深刻，精彩的多元宇宙冒險。",
-        poster: "https://image.tmdb.org/t/p/w300/nOPl3R32H7lqd66khLfBByEGtRM.jpg"
+        poster: "https://image.tmdb.org/t/p/original/oxM2ZU1OtLHtKKQg1KMLFnjvAn2.jpg"
       },
       {
         title: "驚奇隊長",
         genre: "action",
         rating: "★★★★☆",
         reason: "強大的女英雄，開創漫威的新篇章。",
-        poster: "https://image.tmdb.org/t/p/w300/dYXN71eT1kNo7oaZ4K5nTkM9Z0y.jpg"
-        },
+        poster: "https://image.tmdb.org/t/p/original/vELsvyKySjI05znoNfB4gknfLf4.jpg"
+      },
       {
         title: "海底總動員",
         genre: "animation",
         rating: "★★★★★",
         reason: "充滿溫馨與冒險，適合所有年齡層。",
-        poster: "https://image.tmdb.org/t/p/w300/vjR1ftPbm2UoOf4xYbwLgk0itpk.jpg"
+        poster: "https://image.tmdb.org/t/p/original/kTpGpzK6s70IP1Ge9IHeWCmYneS.jpg"
       },
       {
         title: "玩具總動員",
         genre: "animation",
         rating: "★★★★★",
         reason: "經典的動畫電影，充滿溫馨與友情。",
-        poster: "https://image.tmdb.org/t/p/w300/7Or0zp1cZwpKLZNmzxLPXZOHscP.jpg"
+        poster: "https://image.tmdb.org/t/p/original/zOpj9XcRHKiHzS3z9I7NdTFX48O.jpg"
       },
       {
         title: "玩具總動員3",
         genre: "animation",
         rating: "★★★★★",
         reason: "情感深刻，為這個系列劃下完美句點。",
-        poster: "https://image.tmdb.org/t/p/w300/i7wCGcHtqk7gpqHrjZgI6iYZVzd.jpg"
+        poster: "https://image.tmdb.org/t/p/original/1lWGjSvNN5tu21ecVdoRh70v9IL.jpg"
       },
       {
         title: "神鬼奇航",
         genre: "adventure",
         rating: "★★★★☆",
         reason: "動作、幽默、奇幻的冒險電影。",
-        poster: "https://image.tmdb.org/t/p/w300/6MwZ4v1tct6ay8lKcgDo9gI7oiN.jpg"
+        poster: "https://image.tmdb.org/t/p/original/7IjWggLubeKPMJLVNRXtzxFdL37.jpg"
       },
       {
         title: "海上鋼琴師",
         genre: "drama",
         rating: "★★★★★",
         reason: "感人至深的音樂與人生故事。",
-        poster: "https://image.tmdb.org/t/p/w300/f6DO0DW4OCwDN93R5y8uBaJ6D3S.jpg"
-      },
-      {
-        title: "駭客帝國",
-        genre: "sci-fi",
-        rating: "★★★★★",
-        reason: "對虛擬世界的深刻探討，極具思想性。",
-        poster: "https://image.tmdb.org/t/p/w300/xpcg8O5aKfgwAvoDQaj68FPVFA8.jpg"
-      },
-      {
-        title: "終結者2：審判日",
-        genre: "action",
-        rating: "★★★★★",
-        reason: "科幻動作經典，劇情刺激，視覺效果超前。",
-        poster: "https://image.tmdb.org/t/p/w300/jzoNKkpnRj3Fe5ih0INME9Xq2v6.jpg"
-      },
-      {
-        title: "偷天換日",
-        genre: "thriller",
-        rating: "★★★★☆",
-        reason: "充滿詭計與懸疑的動作片，節奏緊湊。",
-        poster: "https://image.tmdb.org/t/p/w300/y38Tkqa0g5lXgVxJ2f7rbBY3HtX.jpg"
-      },
-      {
-        title: "創：戰紀",
-        genre: "sci-fi",
-        rating: "★★★★☆",
-        reason: "虛擬世界的冒險，視覺效果震撼。",
-        poster: "https://image.tmdb.org/t/p/w300/aIRcQGLmjZXhLzls1Skj29JlAGk.jpg"
-      },
-      {
-        title: "異形",
+        poster: "https://image.tmdb.org/t/p/original/eppvgPlgnuZUgr4P5tW0WxNVVdV.jpg"
+       },
+       {
+        title: "沼澤異形",
         genre: "horror",
         rating: "★★★★★",
-        reason: "充滿驚悚與未知的科幻恐怖片。",
-        poster: "https://image.tmdb.org/t/p/w300/7L5dzqhpT7rAV7bqzzjERQnm4tD.jpg"
+        reason: "充滿懸疑與未知的科幻片。",
+        poster: "https://image.tmdb.org/t/p/original/yToyMn7Zm9hYD6K3CLZ1oOqUcEv.jpg"
+      },
+      {
+        title: "天氣之子",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "唯美畫面與青春愛情的完美結合。",
+        poster: "https://image.tmdb.org/t/p/original/4IKNr9R9HpaIUFVHivTDa3Vdplj.jpg"
+      },
+      {
+        title: "螢火蟲之墓",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "深刻描繪戰爭中孩子的無助與悲傷。",
+        poster: "https://image.tmdb.org/t/p/original/eMGi3hGeATLrnIcyO0136S5g6HG.jpg"
+      },
+      {
+        title: "神隱少女",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "宮崎駿經典之作，奇幻與成長的旅程。",
+        poster: "https://image.tmdb.org/t/p/original/qIVSUzgVfg1citQeZdBDGKTinUb.jpg"
+      },
+      {
+        title: "龍貓",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "溫馨童話世界的代表作，療癒人心。",
+        poster: "https://image.tmdb.org/t/p/original/cqmTBiE8ianWpz1jCFImDHve3QW.jpg"
+      },
+      {
+        title: "魔女宅急便",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "少女成長故事，富有溫度與夢想。",
+        poster: "https://image.tmdb.org/t/p/original/oFouL0QtqVjGP6JutSCYpY4AM5b.jpg"
+      },
+      {
+        title: "借物少女艾莉緹",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "精緻動畫與細膩情感的結合。",
+        poster: "https://image.tmdb.org/t/p/original/pfLs2YpKbIYLKiJAhCAlvdXC10e.jpg"
+      },
+      {
+        title: "聲之形",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "探討霸凌、寬恕與成長的感人故事。",
+        poster: "https://image.tmdb.org/t/p/original/iaGtlwRWk18rmDrxWvZknKLhIV8.jpg"
+      },
+      {
+        title: "煙花",
+        genre: "animation",
+        rating: "★★★☆☆",
+        reason: "平行時空與青春戀愛的探索。",
+        poster: "https://image.tmdb.org/t/p/original/zJ1bMh7Cc40FhpxoJoul23PlU4C.jpg"
+      },
+      {
+        title: "來自紅花坂",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "懷舊氛圍濃厚的青春校園愛情故事。",
+        poster: "https://image.tmdb.org/t/p/original/eYiUN4nY9AXylf9ju703FYE97w3.jpg"
+      },
+      {
+        title: "紅豬",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "飛行夢與浪漫的交織。",
+        poster: "https://image.tmdb.org/t/p/original/8bfUIPcpoISjrddGmjRBWBLbEsQ.jpg"
+      },
+      {
+        title: "風起",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "對夢想與現實交錯的感性詮釋。",
+        poster: "https://image.tmdb.org/t/p/original/2iylZr4uUrsEVhbbHD2KVa6u2Tb.jpg"
+      },
+      {
+        title: "跳耀吧！時空少女",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "時間旅行與青春回憶的交響曲。",
+        poster: "https://image.tmdb.org/t/p/original/h0gR5p8fMyDLooMc5TpmUcNTpAq.jpg"
+      },
+      {
+        title: "狼的孩子雨和雪",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "母愛與成長的深刻描寫，充滿生命力。",
+        poster: "https://image.tmdb.org/t/p/original/7VKJQ3TMG8K9Cqa6tnfIrPkyvjY.jpg"
+      },
+      {
+        title: "未聞花名 劇場版",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "再度回顧感人淚下的青春故事。",
+        poster: "https://image.tmdb.org/t/p/original/dZf3KcRtHBzJ4EjgjwTuqYqoGJe.jpg"
+      },
+      {
+        title: "秒速五公分",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "關於距離與時間的愛戀詩篇。",
+        poster: "https://image.tmdb.org/t/p/original/yNE97M0dXrOoKqiDQIjhvPKvMxL.jpg"
+      },
+      {
+        title: "言葉之庭",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "以雨為意象的淡雅戀愛物語。",
+        poster: "https://image.tmdb.org/t/p/original/jKLcFPvAG9hfc8NZtAkTP332nI5.jpg"
+      },
+      {
+        title: "空之境界：俯瞰風景",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "型月作品的經典暗黑奇幻開端。",
+        poster: "https://image.tmdb.org/t/p/original/1tdHEwyFGiqTPlKISYhiaWwezTu.jpg"
+      },
+      {
+        title: "名偵探柯南：零的執行人",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "懸疑緊湊，安室透人氣高峰之作。",
+        poster: "https://image.tmdb.org/t/p/original/9jMR1AjV549jLpmodxlNIdMuSPj.jpg"
+      },
+      {
+        title: "名偵探柯南：緋色的彈丸",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "柯南與赤井秀一聯手破案，精彩刺激。",
+        poster: "https://image.tmdb.org/t/p/original/dE3urjRTL4OevYuF768ZL2rLGQU.jpg"
+      },
+      {
+        title: "七龍珠超：布羅利",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "戰鬥畫面炸裂，情懷與熱血並存。",
+        poster: "https://image.tmdb.org/t/p/original/9ajyW4eiWAbMc4zNy7xWdqGmzaO.jpg"
+      },
+      {
+        title: "刀劍神域：序列爭戰",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "虛擬與現實交織的緊張戰鬥冒險。",
+        poster: "https://image.tmdb.org/t/p/original/5BUUDGJkpRE3bd6lf1Dz3iXqKrh.jpg"
+      },
+      {
+        title: "鬼滅之刃：無限列車篇",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "情感與戰鬥交織的高潮劇場版。",
+        poster: "https://image.tmdb.org/t/p/original/fvYwUYNzbcI4cb6NG8QjZflLtwW.jpg"
+      },
+      {
+        title: "https://image.tmdb.org/t/p/original/fvYwUYNzbcI4cb6NG8QjZflLtwW.jpg"
+      },
+      {
+        title:"劇場版咒術迴戰0",
+        genre: "animation",
+        rating: "★★★★☆",
+        reason: "前傳劇情扎實，戰鬥場面華麗。",
+        poster: "https://image.tmdb.org/t/p/original/qiodOI39faRytzKvmq1C8IUjxaX.jpg"
+      },
+      {
+        title: "新世紀福音戰士：Air/真心為你",
+        genre: "animation",
+        rating: "★★★★★",
+        reason: "充滿哲學與心理描寫的經典結局。",
+        poster: "https://image.tmdb.org/t/p/original/kthLebZgNbo65wRZWJhDl51Z2i4.jpg"
       }
     ];
 
